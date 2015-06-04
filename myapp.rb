@@ -7,6 +7,6 @@ get "/" do
   "hello, world!"
 end
 
-get "/github" do
+post "/github" do
   Github::hello(params)
 end
