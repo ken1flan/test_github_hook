@@ -13,14 +13,10 @@ end
 
 post "/github" do
   # Github::hello(params)
-  logger.info "params:" + params.to_s
   payload = JSON.parse(params[:payload])
-  # logger.info "payload:" + params[:payload].to_s
   logger.info "['repository']['name']" + payload['repository']['name']
-
-  #request.body.rewind
-  #posted_data = request.body.read
-  #logger.info "posted_data:" + posted_data.to_s
-  #payload = JSON.parse(params[:payload])
-  #logger.info "payload:" + payload['repository']['name']
+  repository_name = payload['repository']['name']
+  logger.info "REPOSITORY_ROOT:" + ENV["REPOSITORY_ROOT"].to_s
+  # git fetch origin
+  # git 
 end
