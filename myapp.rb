@@ -14,9 +14,15 @@ end
 post "/github" do
   # Github::hello(params)
   payload = JSON.parse(params[:payload])
-  logger.info "['repository']['name']" + payload['repository']['name']
   repository_name = payload['repository']['name']
-  logger.info "REPOSITORY_ROOT:" + ENV["REPOSITORY_ROOT"].to_s
-  # git fetch origin
-  # git 
+  repository_root = ENV["REPOSITORY_ROOT"].to_s
+  # logger.info "['repository']['name']" + repository_name
+  # logger.info "REPOSITORY_ROOT:" + repository_root
+
+  git_dir = "#{repository_root}/#{repository_name}/.git"
+  cmd = "git --git-dir=#{git_dir} remote plune origin" +
+        "&& git --git-dir=#{git_dir} fetch origin"
+  # pid = Process.spawn(cmd)
+  # Process.detach(pid)
+  logger.info "COMMAND:" + cmd
 end
