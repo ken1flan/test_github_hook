@@ -13,9 +13,10 @@ end
 
 post "/github" do
   # Github::hello(params)
-  logger.info "X-GitHub-Event:" + request["X-GitHub-Event"].to_s
   logger.info "params:" + params.to_s
+  payload = JSON.parse(params[:payload])
   # logger.info "payload:" + params[:payload].to_s
+  logger.info "['repository']['name']" + payload['repository']['name']
 
   #request.body.rewind
   #posted_data = request.body.read
