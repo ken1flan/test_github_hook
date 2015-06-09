@@ -12,9 +12,13 @@ get "/" do
 end
 
 post "/github" do
-  Github::hello(params)
+  # Github::hello(params)
   logger.info "params:" + params.to_s
   logger.info "payload:" + params[:payload].to_s
-  payload = JSON.parse(params[:payload])
-  logger.info "payload:" + payload['repository']['name']
+
+  request.body.rewind
+  posted_data = request.body.read
+  logger.info "posted_data:" + posted_data.to_s
+  #payload = JSON.parse(params[:payload])
+  #logger.info "payload:" + payload['repository']['name']
 end
