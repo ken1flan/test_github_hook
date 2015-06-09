@@ -1,4 +1,5 @@
 require "sinatra"
+require "json"
 
 post "/github" do
   payload = JSON.parse(params[:payload])
