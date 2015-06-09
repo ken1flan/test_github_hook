@@ -16,9 +16,9 @@ post "/github" do
   logger.info "params:" + params.to_s
   # logger.info "payload:" + params[:payload].to_s
 
-  request.body.rewind
-  posted_data = request.body.read
-  logger.info "posted_data:" + posted_data.to_s
+  #request.body.rewind
+  #posted_data = request.body.read
+  #logger.info "posted_data:" + posted_data.to_s
   #payload = JSON.parse(params[:payload])
   #logger.info "payload:" + payload['repository']['name']
 end
