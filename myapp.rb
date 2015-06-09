@@ -13,6 +13,7 @@ end
 
 post "/github" do
   # Github::hello(params)
+  logger.info "X-GitHub-Event:" + request["X-GitHub-Event"]
   logger.info "params:" + params.to_s
   # logger.info "payload:" + params[:payload].to_s
 
