@@ -20,7 +20,7 @@ post "/github" do
   # logger.info "REPOSITORY_ROOT:" + repository_root
 
   git_dir = "#{repository_root}/#{repository_name}/.git"
-  cmd = "git --git-dir=#{git_dir} remote plune origin" +
+  cmd = "git --git-dir=#{git_dir} remote prune origin" +
         "&& git --git-dir=#{git_dir} fetch origin"
   # pid = Process.spawn(cmd)
   # Process.detach(pid)
