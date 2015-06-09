@@ -14,7 +14,7 @@ end
 post "/github" do
   # Github::hello(params)
   logger.info "params:" + params.to_s
-  logger.info "payload:" + params[:payload].to_s
+  # logger.info "payload:" + params[:payload].to_s
 
   request.body.rewind
   posted_data = request.body.read
