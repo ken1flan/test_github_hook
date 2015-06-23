@@ -5,7 +5,7 @@ post "/github" do
   payload = JSON.parse(params[:payload])
   repository_name = payload['repository']['name']
   repository_root = ENV["REPOSITORY_ROOT"].to_s
-  git_options = "--git-dir=#{repository_root}/#{repository_name}/.git"
+  git_options = "--git-dir=#{repository_root}/#{repository_name}.git"
 
   if system("pgrep -f \"sh -c git #{git_options}\"")
     next "Found another process for #{repository_name}"
